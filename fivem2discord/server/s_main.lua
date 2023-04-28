@@ -262,7 +262,34 @@ AddEventHandler('FiveM2Discord:SendWebhookLogs', function(WebHook, Name, Message
 
                             Image = Line:gsub('	<avatarFull><!%[CDATA%[', ''):gsub(']]></avatarFull>', '')
 
-                            return PerformHttpRequest(WebHook, function(Error, Content, Head) end, 'POST', json.encode({username = Name, content = Message, avatar_url = Image, tts = TTS}), {['Content-Type'] = 'application/json'})
+                            if CONFIGURATION.Messages.UseEmbeds then
+                                
+                                local embed = {
+                                    {
+                                        color = 0x0099FF,
+                                        title = 'Server Logs',
+                                        author = {
+                                            name = 'Discord2FiveM',
+                                            icon_url = CONFIGURATION.Messages.EmbedImage,
+                                            url  = 'https://github.com/toxic-development/FiveM2Discord' -- Best you dont change this and give credit where its due
+                                        },
+                                        description = Message,
+                                        thumbnail = {
+                                            url = Image
+                                        },
+                                        footer = {
+                                            text = '© 2023 FiveM2Discord | Made by: Toxic Dev',  -- Best you dont change this and give credit where its due
+                                            icon_url = CONFIGURATION.Messages.EmbedImage
+                                        }
+                                    }
+                                }
+                                
+                                return PerformHttpRequest(WebHook, function(Error, Content, Head) end, 'POST', json.encode({username = Name, embeds = embed, avatar_url = Image, tts = TTS}), {['Content-Type'] = 'application/json'})
+                            
+                            else
+        
+                                return PerformHttpRequest(WebHook, function(Error, Content, Head) end, 'POST', json.encode({username = Name, content = Message, avatar_url = Image, tts = TTS}), {['Content-Type'] = 'application/json'})
+                            end
                         end
                     end
                 end)
@@ -279,7 +306,7 @@ AddEventHandler('FiveM2Discord:SendWebhookLogs', function(WebHook, Name, Message
 
     if CONFIGURATION.Messages.UseEmbeds then
 
-        local embed = {
+        local embed2 = {
             {
                 color = 0x0099FF,
                 title = 'Server Logs',
@@ -288,7 +315,7 @@ AddEventHandler('FiveM2Discord:SendWebhookLogs', function(WebHook, Name, Message
                     icon_url = CONFIGURATION.Messages.EmbedImage,
                     url  = 'https://github.com/toxic-development/FiveM2Discord' -- Best you dont change this and give credit where its due
                 },
-                desription = Message,
+                description = Message,
                 thumbnail = {
                     url = Image
                 },
@@ -299,7 +326,7 @@ AddEventHandler('FiveM2Discord:SendWebhookLogs', function(WebHook, Name, Message
             }
         }
 
-        PerformHttpRequest(WebHook, function(Error, Content, Head) end, 'POST', json.encode({username = Name, embeds = embed, avatar_url = Image, tts = TTS}), {['Content-Type'] = 'application/json'})
+        PerformHttpRequest(WebHook, function(Error, Content, Head) end, 'POST', json.encode({username = Name, embeds = embed2, avatar_url = Image, tts = TTS}), {['Content-Type'] = 'application/json'})
 
     else
         

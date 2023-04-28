@@ -94,7 +94,7 @@ if CONFIGURATION.Messages.UseEmbeds then
 
 else
 
-    PerformHttpRequest(S_CONFIG.DiscordServerLogs, function(err, text, headers) end, 'POST', json.encode({username = CONFIGURATION.System.SystemName, avatar_url = CONFIGURATION.System.SystemAvatar, '**[Discord2FiveM]:** Start up successful'}), { ['Content-Type'] = 'application/json' })
+    PerformHttpRequest(S_CONFIG.DiscordServerLogs, function(err, text, headers) end, 'POST', json.encode({username = CONFIGURATION.System.SystemName, avatar_url = CONFIGURATION.System.SystemAvatar, content = '**[Discord2FiveM]:** Start up successful'}), { ['Content-Type'] = 'application/json' })
 end
 
 
@@ -435,6 +435,8 @@ end
     disable the version checks just set the `UpdateCheck`
     setting in the `settings.lua` file to false
 ]]
+
+
 if CONFIGURATION.System.UpdateCheck then
 
     function GetCurrentVersion()
@@ -442,7 +444,7 @@ if CONFIGURATION.System.UpdateCheck then
         return GetResourceMetadata(GetCurrentResourceName(), 'version')
     end
 
-    local CurrentVersion = '0.0.3'
+    local CurrentVersion = GetCurrentVersion()
     local GithubResourceName = 'fivem2discord'
 
     PerformHttpRequest('https://raw.githubusercontent.com/NARC-FiveM/Versions/master/' .. GithubResourceName .. '/VERSION.txt', function(Error, NewestVersion, Header)
@@ -456,18 +458,19 @@ if CONFIGURATION.System.UpdateCheck then
             print('Current Version: ' .. CurrentVersion)
             print('Newest Version: ' .. NewestVersion)
             print('##############')
-
-        if (tonumber(NewestVersion) ~= tonumber(CurrentVersion)) then
-                    
+        if (tonumber(CurrentVersion) < tonumber(NewestVersion)) then
             print('Error: You are using an outdated version')
             print('Please check our github for the newest release')
-            print('Github: https://github.com/NARC-FiveM/Resources/discord-logs')
+            print('Github: https://github.com/toxic-development/FiveM2Discord')
             print('##############')
             print('Change Log: \n' .. Changes)
             print('##############')
-                      
+        elseif (tonumber(CurrentVersion) > tonumber(NewestVersion)) then
+            print('Error: Are you living in the future?')
+            print('- You are using a non-existent verison')
+            print('- Please downgrade to latest to remove this error')
+            print('##############')
         else
-        
             print('Success: You are up to date and good to go')
             print('##############')
         end

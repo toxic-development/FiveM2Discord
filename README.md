@@ -37,5 +37,3 @@ If you are experiencing issues please feel free to Contact me by creating an iss
 **NOTICE:** Any repositories not owned or created by NARC-FiveM, TheRealToxicDev or Toxic Development are fake and should be reported to me xD
 
 > Make sure you follow and leave a star on the repo!
-
-https://github.com/toxic-development/FiveM2Discord

@@ -447,7 +447,7 @@ if CONFIGURATION.System.UpdateCheck then
     local CurrentVersion = GetCurrentVersion()
     local GithubResourceName = 'fivem2discord'
 
-    PerformHttpRequest('https://raw.githubusercontent.com/NARC-FiveM/Versions/master/' .. GithubResourceName .. '/VERSION.txt', function(Error, NewestVersion, Header)
+    PerformHttpRequest('https://raw.githubusercontent.com/NARC-FiveM/Versions/master/' .. GithubResourceName .. '/VERSION', function(Error, NewestVersion, Header)
         
         PerformHttpRequest('https://raw.githubusercontent.com/NARC-FiveM/Versions/master/' .. GithubResourceName .. '/CHANGES', function(Error, Changes, Header)
         

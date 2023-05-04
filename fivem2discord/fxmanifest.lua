@@ -2,7 +2,7 @@ fx_version 'cerulean'
 game 'gta5'
 
 name 'FiveM2Discord'
-version '004'
+version '005'
 
 author 'Toxic Dev'
 description 'Discord Bot that allows you to have server notifications sent to discord!'

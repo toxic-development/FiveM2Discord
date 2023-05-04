@@ -2,7 +2,7 @@ fx_version 'cerulean'
 game 'gta5'
 
 name 'FiveM2Discord'
-version '0.0.4'
+version '004'
 
 author 'Toxic Dev'
 description 'Discord Bot that allows you to have server notifications sent to discord!'
@@ -19,3 +19,5 @@ server_scripts {
 	'server/s_config.lua',
 	'server/s_main.lua',
 }
+
+export 'SendWebhookLogs'

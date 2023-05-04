@@ -10,7 +10,6 @@
     - I WILL NOT HELP YOU FIX ANYTHING IF YOU MESS WITH AND BREAK THIS FILE -- YOU HAVE BEEN WARNED
 ]]
 
-
 --[[ HANDLE NIL VALUES ON ALL WEBHOOK URLS]]
 if S_CONFIG.DiscordServerLogs == nil and S_CONFIG.DiscordKillingLogs == nil and S_CONFIG.DiscordWebhookChat == nil then
 
@@ -96,7 +95,6 @@ else
 
     PerformHttpRequest(S_CONFIG.DiscordServerLogs, function(err, text, headers) end, 'POST', json.encode({username = CONFIGURATION.System.SystemName, avatar_url = CONFIGURATION.System.SystemAvatar, content = '**[Discord2FiveM]:** Start up successful'}), { ['Content-Type'] = 'application/json' })
 end
-
 
 AddEventHandler('playerConnecting', function()
 

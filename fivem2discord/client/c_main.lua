@@ -1,3 +1,13 @@
+function SendWebhookLogs(channel, name, message, image, dep)
+    TriggerServerEvent('FiveM2Discord:SendWebhookLogs', channel, name, message, image, dep)
+end
+
+RegisterCommand("fm2dtest", function()
+    TriggerServerEvent('FiveM2Discord:SendWebhookLogs', 'system', 'EXPORTS', 'Test webhook.. If you got this it worked chief!', 'https://wiki.fivem.net/w/images/d/db/FiveM-Wiki.png', false)
+end)
+
+exports['fivem2discord']:SendWebhookLogs('system', 'EXPORTS', 'Test webhook through export.. If you got this it worked chief!', 'https://wiki.fivem.net/w/images/d/db/FiveM-Wiki.png', false)
+
 Citizen.CreateThread(function()
 
 	local DeathReason, Killer, DeathCauseHash, Weapon

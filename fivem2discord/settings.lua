@@ -12,7 +12,7 @@ CONFIGURATION = {
         UpdateCheck = true, -- Allow the resource to check for updates on startup!
     },
     Messages = {
-        UseEmbeds = true, -- Send the messages to discord as an embed
+        UseEmbeds = false, -- Send the messages to discord as an embed
         EmbedImage = 'https://cdn.discordapp.com/attachments/653733403841134600/1101375870955966514/FiveM.png' -- You can change this
     },
     --[[

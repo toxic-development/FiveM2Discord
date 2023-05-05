@@ -25,6 +25,8 @@ Simple resource that allows you to have server notifications sent to a discord c
 
 - [Common Fixes](https://help.toxicdev.me/internal/fivem2discord/fixes/)
 
+- [Get Support](https://discord.gg/f8g9mvB9Q3)
+
 
 ---
 

@@ -4,9 +4,9 @@ Simple resource that allows you to have server notifications sent to a discord c
 ---
 
 ## Available Notifications Include
-> Player Death Notifications
-> Player Join & Leave Notifications
-> /911 Commands Usage
+- `Player Death Notifications`
+- `Player Join & Leave Notifications`
+- `/911 Commands Usage`
 
 ---
 
